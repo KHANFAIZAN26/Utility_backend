@@ -1,6 +1,5 @@
 const db = require("../Connections/DBConnection");
 
-
 // Add Vendor
 
 const Add = async (req, res) => {
@@ -25,19 +24,23 @@ const Add = async (req, res) => {
 
 // Fetch all Vendor
 
-const Fetch = (req,res) => {
+const Fetch = (req, res) => {
   try {
-    const sql = "SELECT * FROM Vendor ORDER BY ID DESC"
-    db.query(sql, (err,result) => {
-      if(err){
-        res.status(200).json({return:false,message:err})
-      }else{
-        return res.status(200).json({return:true,message:'Vendor Fetch Successful',data:result})
+    const sql = "SELECT * FROM Vendor ORDER BY ID DESC";
+    db.query(sql, (err, result) => {
+      if (err) {
+        res.status(200).json({ return: false, message: err });
+      } else {
+        return res
+          .status(200)
+          .json({
+            return: true,
+            message: "Vendor Fetch Successful",
+            data: result,
+          });
       }
-    })
-  } catch (error) {
-    
-  }
-}
+    });
+  } catch (error) {}
+};
 
-module.exports = { Add ,Fetch};
+module.exports = { Add, Fetch };
