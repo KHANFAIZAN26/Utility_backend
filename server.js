@@ -6,7 +6,9 @@ const dotenv = require("dotenv").config();
 const port = process.env.PORT || 1001;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:"*",
+}))
 app.use(bodyParser.json());
 
 app.use("/api/vendor", require("./Routers/VendorRouter"));
