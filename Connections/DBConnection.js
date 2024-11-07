@@ -1,6 +1,6 @@
-const mysql = require("mysql");
+const mysql = require('mysql2/promise')
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: "193.203.184.162",
   user: "u849571577_uber",
   password: "Uber@123!!",
